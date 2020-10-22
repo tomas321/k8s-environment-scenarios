@@ -1,0 +1,15 @@
+
+### prerequisites
+
+- create a simple NodePort type service
+    - for each pod matching given selector
+    - for each pod to be exposed as `<ANY_NODE_IP>:<PORT_SPECIFIED_FROM_RANGE>`
+
+- (optional) setup nginx ingress controller via kubespray
+    - nginx ingress controller acts as a reverse proxy and load balancer
+    - create ConfigMap for tcp connection mapping exposed pod ports
+    - create ConfigMap for udp connection mapping exposed pod ports
+    - PodSecurityPolicy to secure the security aspects of pod specifications
+    - and other role related objects
+
+- configure the ingress resource

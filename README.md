@@ -25,7 +25,7 @@ Various scenarios or separate k8s resource ready to deploy
 
 ### WIP private scenario
 
-path: [private_scenario](./private_scenario)
+path: [private_scenario](./scenarios/private_scenario)
 
 - pods/deployment
     - web (e.g. gitea, custom webpage)
