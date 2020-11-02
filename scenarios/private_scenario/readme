@@ -1,6 +1,9 @@
 
 ### prerequisites
 
+- when using NFS storage:
+    - install the `nfs-kernel-server` package on the all nodes
+
 - create a simple NodePort type service
     - for each pod matching given selector
     - for each pod to be exposed as `<ANY_NODE_IP>:<PORT_SPECIFIED_FROM_RANGE>`
