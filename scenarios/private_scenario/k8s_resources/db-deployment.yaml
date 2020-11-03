@@ -31,9 +31,9 @@ spec:
           name: gitea-db
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: db-claim0
+              name: db-volume0
       restartPolicy: Always
       volumes:
-        - name: db-claim0
+        - name: db-volume0
           persistentVolumeClaim:
             claimName: db-claim0

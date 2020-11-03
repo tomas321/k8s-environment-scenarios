@@ -44,23 +44,23 @@ spec:
             - containerPort: 22
           volumeMounts:
             - mountPath: /data
-              name: server-claim0
+              name: server-volume0
             - mountPath: /etc/timezone
-              name: server-claim1
+              name: server-volume1
               readOnly: true
             - mountPath: /etc/localtime
-              name: server-claim2
+              name: server-volume2
               readOnly: true
       restartPolicy: Always
       volumes:
-        - name: server-claim0
+        - name: server-volume0
           persistentVolumeClaim:
             claimName: server-claim0
-        - name: server-claim1
+        - name: server-volume1
           persistentVolumeClaim:
             claimName: server-claim1
             readOnly: true
-        - name: server-claim2
+        - name: server-volume2
           persistentVolumeClaim:
             claimName: server-claim2
             readOnly: true

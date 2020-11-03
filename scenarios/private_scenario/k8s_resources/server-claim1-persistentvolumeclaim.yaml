@@ -5,11 +5,12 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: server-claim1
+    service: server-claim1
   name: server-claim1
 spec:
   accessModes:
     - ReadOnlyMany
+  storageClassName: managed-nfs-storage
   resources:
     requests:
       storage: 100Mi

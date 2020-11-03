@@ -6,14 +6,17 @@ metadata:
   creationTimestamp: null
   labels:
     service: gitea-server-service
-  name: gitea-server-service
+  name: gitea-service
 spec:
+  type: NodePort
   ports:
-    - name: "3000"
+    - name: "port-3000"
       port: 3000
       targetPort: 3000
-    - name: "222"
-      port: 222
+      nodePort: 30007
+    - name: "port-22"
+      port: 22
       targetPort: 22
+      nodePort: 30008
   selector:
     service: gitea-server
