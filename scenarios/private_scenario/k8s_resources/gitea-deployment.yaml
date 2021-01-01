@@ -1,0 +1,34 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: gitea
+    spec:
+      containers:
+        - image: gitea/gitea:latest
+          name: gitea
+          ports:
+            - containerPort: 3000
+              name: gitea-web
+            - containerPort: 22
+              name: gitea-ssh
+          volumeMounts:
+            - mountPath: /data
+              name: gitea-volume
+      restartPolicy: Always
+      volumes:
+        - name: gitea-volume
+          persistentVolumeClaim:
+            claimName: gitea-claim

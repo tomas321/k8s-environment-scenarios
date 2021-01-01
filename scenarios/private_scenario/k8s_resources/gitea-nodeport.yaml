@@ -1,0 +1,15 @@
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitea-nodeport
+spec:
+  type: NodePort
+  ports:
+    - name: web
+      protocol: TCP
+      port: 80
+      targetPort: gitea-web
+  selector:
+    app: gitea
