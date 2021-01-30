@@ -4,9 +4,8 @@
 - when using NFS storage:
     - install the `nfs-kernel-server` package on the all nodes
 
-- create a simple NodePort type service
-    - for each pod matching given selector
-    - for each pod to be exposed as `<ANY_NODE_IP>:<PORT_SPECIFIED_FROM_RANGE>`
+- create a LoadBalancer "provider" MetalLB
+    - refer to a [playbook](https://github.com/tomas321/masters_thesis/blob/develop/ansible/playbooks/metallb.yml) or the [official docs](https://metallb.universe.tf/)
 
 - (optional) setup nginx ingress controller via kubespray
     - nginx ingress controller acts as a reverse proxy and load balancer
