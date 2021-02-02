@@ -27,12 +27,10 @@ spec:
               value: unlimited
             - name: bootstrap.memory_lock
               value: "true"
-            - name: cluster.initial_master_nodes
-              value: 10.0.0.201, 10.0.0.202
             - name: cluster.name
               value: odfe-cluster
-            - name: discovery.seed_hosts
-              value: 10.0.0.201, 10.0.0.202
+            - name: discovery.type
+              value: single-node
             - name: node.name
               value: odfe-node1
           image: amazon/opendistro-for-elasticsearch:1.12.0
@@ -42,6 +40,8 @@ spec:
               name: elasticsearch
             - containerPort: 9600
               name: elastic-metrics
+            - containerPort: 9300
+              name: elastic-node
           volumeMounts:
             - mountPath: /usr/share/elasticsearch/data
               name: odfe-data1

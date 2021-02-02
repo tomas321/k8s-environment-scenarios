@@ -20,9 +20,9 @@ spec:
       containers:
         - env:
             - name: ELASTICSEARCH_HOSTS
-              value: https://10.0.0.110:9200
+              value: https://10.0.0.201:9200
             - name: ELASTICSEARCH_URL
-              value: https://10.0.0.110:9200
+              value: https://10.0.0.201:9200
           image: amazon/opendistro-for-elasticsearch-kibana:1.12.0
           name: odfe-kibana
           ports:

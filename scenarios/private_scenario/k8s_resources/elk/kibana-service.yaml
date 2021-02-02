@@ -10,7 +10,7 @@ metadata:
   name: kibana
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.203
+  loadBalancerIP: 10.0.0.200
   ports:
     - name: kibana-port
       port: 5601

@@ -15,8 +15,5 @@ spec:
     - name: elasticsearch-port
       port: 9200
       targetPort: elasticsearch
-    - name: elastic-metrics-port
-      port: 9600
-      targetPort: elastic-metrics
   selector:
     io.kompose.service: odfe-node1
