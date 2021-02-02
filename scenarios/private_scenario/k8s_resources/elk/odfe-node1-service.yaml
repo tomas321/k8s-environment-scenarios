@@ -1,0 +1,22 @@
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: odfe-node1
+  annotations:
+    metallb.universe.tf/address-pool: elk
+  name: odfe-node1
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.201
+  ports:
+    - name: elasticsearch-port
+      port: 9200
+      targetPort: elasticsearch
+    - name: elastic-metrics-port
+      port: 9600
+      targetPort: elastic-metrics
+  selector:
+    io.kompose.service: odfe-node1

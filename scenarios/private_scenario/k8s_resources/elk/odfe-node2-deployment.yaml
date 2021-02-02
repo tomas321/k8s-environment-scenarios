@@ -1,0 +1,45 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: odfe-node2
+  name: odfe-node2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: odfe-node2
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/odfe-net: "true"
+        io.kompose.service: odfe-node2
+    spec:
+      containers:
+        - env:
+            - name: ES_JAVA_OPTS
+              value: -Xms512m -Xmx512m
+            - name: bootstrap.memory_lock
+              value: "true"
+            - name: cluster.initial_master_nodes
+              value: 10.0.0.201, 10.0.0.202
+            - name: cluster.name
+              value: odfe-cluster
+            - name: discovery.seed_hosts
+              value: 10.0.0.201, 10.0.0.202
+            - name: node.name
+              value: odfe-node2
+          image: amazon/opendistro-for-elasticsearch:1.12.0
+          name: odfe-node2
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: odfe-data2
+      restartPolicy: Always
+      volumes:
+        - name: odfe-data2
+          persistentVolumeClaim:
+            claimName: odfe-data2
