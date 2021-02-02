@@ -10,6 +10,8 @@ spec:
         - podSelector:
             matchLabels:
               io.kompose.network/odfe-net: "true"
+        - ipBlock:
+            cidr: 10.0.0.0/24
   podSelector:
     matchLabels:
       io.kompose.network/odfe-net: "true"
