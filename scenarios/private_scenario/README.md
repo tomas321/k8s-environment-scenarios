@@ -57,6 +57,6 @@ gitea-http-loadbalancer   LoadBalancer   10.233.57.183   10.0.0.100    80:32627/
 
 ```
 
-There is the intial configuration page for Gitea. Only change the _SSH Server Domain_ and _Gitea Base URL_ to `10.0.0.101` and `http://10.0.0.100/` respenctively
+There is the intial configuration page for Gitea. Only change the _SSH Server Domain_, _SSH Server Port_ and _Gitea Base URL_ to `10.0.0.101`, `2222` and `http://10.0.0.100/` respenctively
 
 In case of any problems refer to this [link](https://packetriot.com/tutorials/posts/setting-up-gitea/)
